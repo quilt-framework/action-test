@@ -2,13 +2,13 @@ name: Test
 description: "Runs Quilt’s test command on your workspace"
 inputs:
   arguments:
-    description: "Additional arguments to pass to sewing-kit’s test command"
+    description: "Additional arguments to pass to Quilt’s test command"
     required: false
     default: ""
   command:
-    description: "The command to run to start sewing-kit’s tests"
+    description: "The command to run to start Quilt’s tests"
     required: false
-    default: "node_modules/.bin/sewing-kit test"
+    default: "node_modules/.bin/quilt test"
 runs:
   using: "composite"
   steps:
@@ -16,7 +16,7 @@ runs:
       id: jest-cache
       name: Restore Jest cache
       with:
-        path: .sewing-kit/temp/jest/cache
+        path: .quilt/temp/jest/cache
         key: ${{ runner.os }}-jest-v1-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-jest-v1-
